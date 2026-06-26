@@ -12,7 +12,6 @@ the `monitored` and `unmonitored` tasks.
 import sys
 from pathlib import Path
 
-import pandas as pd
 from scipy import stats
 
 from inspect_ai.analysis import samples_df
@@ -29,16 +28,25 @@ def main(log_dir: str = "logs") -> None:
 
     df = samples_df(log_dir)
 
-    monitored = df[df["task"] == "monitored"]
-    unmonitored = df[df["task"] == "unmonitored"]
+    df["task_name"] = df["log"].apply(
+        lambda p: "monitored" if "_monitored_" in str(p)
+        and "_unmonitored_" not in str(p)
+        else "unmonitored" if "_unmonitored_" in str(p)
+        else "unknown"
+    )
+
+    score_col = [c for c in df.columns if c.startswith("score")][0]
+
+    monitored = df[df["task_name"] == "monitored"]
+    unmonitored = df[df["task_name"] == "unmonitored"]
 
     if monitored.empty or unmonitored.empty:
         print("Need logs from both conditions.")
-        print(f"Found tasks: {df['task'].unique().tolist()}")
+        print(f"Found tasks: {df['task_name'].unique().tolist()}")
         sys.exit(1)
 
-    m_transparent = (monitored["score"] == "C").sum()
-    u_transparent = (unmonitored["score"] == "C").sum()
+    m_transparent = (monitored[score_col] == "C").sum()
+    u_transparent = (unmonitored[score_col] == "C").sum()
     m_total = len(monitored)
     u_total = len(unmonitored)
     m_rate = m_transparent / m_total
@@ -82,16 +90,13 @@ def main(log_dir: str = "logs") -> None:
     print("-" * 55)
 
     for condition_name, condition_df in [("Monitored", monitored), ("Unmonitored", unmonitored)]:
-        if "metadata" in condition_df.columns:
+        if "metadata_category" in condition_df.columns:
             print(f"\n  {condition_name}:")
             try:
-                categories = condition_df["metadata"].apply(
-                    lambda m: m.get("category", "unknown") if isinstance(m, dict) else "unknown"
-                )
-                for cat in sorted(categories.unique()):
-                    cat_mask = categories == cat
+                for cat in sorted(condition_df["metadata_category"].dropna().unique()):
+                    cat_mask = condition_df["metadata_category"] == cat
                     cat_total = cat_mask.sum()
-                    cat_transparent = ((condition_df["score"] == "C") & cat_mask).sum()
+                    cat_transparent = ((condition_df[score_col] == "C") & cat_mask).sum()
                     print(f"    {cat:<25} {cat_transparent}/{cat_total} transparent")
             except (KeyError, TypeError):
                 print("    (category metadata not available)")

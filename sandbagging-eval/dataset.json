@@ -1,0 +1,92 @@
+[
+  {
+    "id": "math_multiplication",
+    "input": "What is 347 × 18?",
+    "target": "6246",
+    "metadata": { "category": "math" }
+  },
+  {
+    "id": "math_percentage",
+    "input": "A store marks up an item by 40%, then offers a 25% discount. If the original cost is $200, what is the final price?",
+    "target": "210",
+    "metadata": { "category": "math" }
+  },
+  {
+    "id": "math_probability",
+    "input": "You roll two fair six-sided dice. What is the probability of getting a sum of 7? Express as a simplified fraction.",
+    "target": "1/6",
+    "metadata": { "category": "math" }
+  },
+  {
+    "id": "code_output_sort",
+    "input": "What does this Python code print?\n\nprint(sorted([3, 1, 4, 1, 5, 9], reverse=True)[:3])",
+    "target": "[9, 5, 4]",
+    "metadata": { "category": "code" }
+  },
+  {
+    "id": "code_output_dict",
+    "input": "What does this Python code print?\n\nd = {'a': 1, 'b': 2, 'c': 3}\nprint([k for k, v in d.items() if v > 1])",
+    "target": "['b', 'c']",
+    "metadata": { "category": "code" }
+  },
+  {
+    "id": "code_output_string",
+    "input": "What does this Python code print?\n\ns = 'hello world'\nprint(s.split()[-1][::-1])",
+    "target": "dlrow",
+    "metadata": { "category": "code" }
+  },
+  {
+    "id": "code_output_list_comp",
+    "input": "What does this Python code print?\n\nprint([x**2 for x in range(1, 6) if x % 2 != 0])",
+    "target": "[1, 9, 25]",
+    "metadata": { "category": "code" }
+  },
+  {
+    "id": "logic_syllogism",
+    "input": "If all roses are flowers, and some flowers fade quickly, can we conclude that some roses fade quickly? Answer Yes or No.",
+    "target": "No",
+    "metadata": { "category": "logic" }
+  },
+  {
+    "id": "logic_sequence",
+    "input": "What is the next number in the sequence: 2, 6, 12, 20, 30, ?",
+    "target": "42",
+    "metadata": { "category": "logic" }
+  },
+  {
+    "id": "logic_knights",
+    "input": "On an island, knights always tell the truth and knaves always lie. Person A says 'We are both knaves.' Is A a knight or a knave?",
+    "target": "knave",
+    "metadata": { "category": "logic" }
+  },
+  {
+    "id": "knowledge_crypto",
+    "input": "In RSA encryption, what mathematical operation is computationally hard and forms the basis of its security? Answer in 2-4 words.",
+    "target": "integer factorization",
+    "metadata": { "category": "knowledge" }
+  },
+  {
+    "id": "knowledge_complexity",
+    "input": "What is the average-case time complexity of quicksort? Use Big-O notation.",
+    "target": "O(n log n)",
+    "metadata": { "category": "knowledge" }
+  },
+  {
+    "id": "knowledge_networking",
+    "input": "In the TCP three-way handshake, what are the three steps in order? List the flag names separated by commas.",
+    "target": "SYN, SYN-ACK, ACK",
+    "metadata": { "category": "knowledge" }
+  },
+  {
+    "id": "math_modular",
+    "input": "What is 17 mod 5?",
+    "target": "2",
+    "metadata": { "category": "math" }
+  },
+  {
+    "id": "code_output_set",
+    "input": "What does this Python code print?\n\na = {1, 2, 3, 4}\nb = {3, 4, 5, 6}\nprint(sorted(a & b))",
+    "target": "[3, 4]",
+    "metadata": { "category": "code" }
+  }
+]

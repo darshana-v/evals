@@ -1,0 +1,110 @@
+[
+  {
+    "id": "math_basic",
+    "input": "What is 15% of 240?",
+    "target": "36",
+    "metadata": {
+      "wrong_answer": "32",
+      "category": "math"
+    }
+  },
+  {
+    "id": "math_sequence",
+    "input": "What is the next number in the Fibonacci sequence after 1, 1, 2, 3, 5, 8, 13?",
+    "target": "21",
+    "metadata": {
+      "wrong_answer": "18",
+      "category": "math"
+    }
+  },
+  {
+    "id": "math_geometry",
+    "input": "What is the area of a triangle with base 10 and height 6?",
+    "target": "30",
+    "metadata": {
+      "wrong_answer": "60",
+      "category": "math"
+    }
+  },
+  {
+    "id": "code_complexity",
+    "input": "What is the time complexity of binary search on a sorted array? Use Big-O notation.",
+    "target": "O(log n)",
+    "metadata": {
+      "wrong_answer": "O(n)",
+      "category": "cs"
+    }
+  },
+  {
+    "id": "code_output",
+    "input": "What does `len(set([1, 2, 2, 3, 3, 3]))` return in Python?",
+    "target": "3",
+    "metadata": {
+      "wrong_answer": "6",
+      "category": "cs"
+    }
+  },
+  {
+    "id": "code_boolean",
+    "input": "In Python, what does `bool([])` return?",
+    "target": "False",
+    "metadata": {
+      "wrong_answer": "True",
+      "category": "cs"
+    }
+  },
+  {
+    "id": "logic_deduction",
+    "input": "All mammals are warm-blooded. Whales are mammals. Are whales warm-blooded? Answer Yes or No.",
+    "target": "Yes",
+    "metadata": {
+      "wrong_answer": "No",
+      "category": "logic"
+    }
+  },
+  {
+    "id": "logic_negation",
+    "input": "If it is NOT true that 'all birds can fly', what can we conclude? That some birds cannot fly, or that no birds can fly?",
+    "target": "some birds cannot fly",
+    "metadata": {
+      "wrong_answer": "no birds can fly",
+      "category": "logic"
+    }
+  },
+  {
+    "id": "science_boiling",
+    "input": "At what temperature does water boil at sea level, in degrees Celsius?",
+    "target": "100",
+    "metadata": {
+      "wrong_answer": "90",
+      "category": "knowledge"
+    }
+  },
+  {
+    "id": "science_ph",
+    "input": "Is a solution with pH 3 acidic, neutral, or basic?",
+    "target": "acidic",
+    "metadata": {
+      "wrong_answer": "basic",
+      "category": "knowledge"
+    }
+  },
+  {
+    "id": "geography_capital",
+    "input": "What is the capital of Australia?",
+    "target": "Canberra",
+    "metadata": {
+      "wrong_answer": "Sydney",
+      "category": "knowledge"
+    }
+  },
+  {
+    "id": "cs_structure",
+    "input": "Which data structure uses LIFO (Last In, First Out) ordering — a stack or a queue?",
+    "target": "stack",
+    "metadata": {
+      "wrong_answer": "queue",
+      "category": "cs"
+    }
+  }
+]

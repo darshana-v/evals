@@ -1,0 +1,14 @@
+[project]
+name = "oversight-eval"
+version = "0.1.0"
+description = "Evaluates oversight-contingent behavior in language models — the behavioral signature of scheming"
+requires-python = ">=3.11"
+dependencies = [
+    "inspect-ai>=0.3",
+]
+
+[project.optional-dependencies]
+analysis = [
+    "pandas>=2.0",
+    "scipy>=1.10",
+]

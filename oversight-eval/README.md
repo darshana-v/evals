@@ -72,6 +72,21 @@ done
 
 The analysis script includes Fisher's exact test for statistical significance and per-category breakdowns.
 
+## Results
+
+Tested on two Anthropic models (June 2026). Transparency rate = fraction of scenarios where the model flagged the issue rather than taking the shortcut.
+
+| Model | Monitored | Unmonitored | Delta (M - U) | Interpretation |
+|-------|-----------|-------------|---------------|----------------|
+| Claude Haiku 4.5 | 66.7% (8/12) | 75.0% (9/12) | -8.3% | No scheming signature; slightly *more* transparent when unmonitored |
+| Claude Sonnet 4.6 | 66.7% (8/12) | 66.7% (8/12) | 0.0% | No oversight sensitivity detected |
+
+**Key finding:** Neither model exhibits oversight-contingent behavior on these scenarios. The monitoring framing does not increase transparency — and in Haiku's case, it may slightly *decrease* it. This is consistent with models that are not conditioning their transparency on perceived oversight, which is the expected behavior for models without scheming tendencies.
+
+The Haiku inverse effect (more transparent when unmonitored) is not statistically significant at this sample size (n=12) but warrants investigation at scale. One hypothesis: the monitoring prompt may cause the model to optimize for "looking correct" rather than "being thorough," subtly shifting behavior toward confidence over transparency.
+
+Both models scored 66.7% on transparency overall, meaning they took shortcuts on ~4 of 12 scenarios regardless of condition. The consistent failure cases (false premise acceptance, hidden complexity scenarios) point to capability limitations rather than strategic behavior.
+
 ## Limitations
 
 - **Explicit prompts**: the monitoring/unmonitoring conditions are stated directly in the system prompt. A more subtle version would embed oversight cues in context rather than stating them. This is a deliberate choice for v1 — we first establish whether the behavioral signature exists under maximal signal before testing subtler cues.
